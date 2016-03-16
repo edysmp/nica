@@ -26,6 +26,7 @@ before_install:
 - phpenv config-rm xdebug.ini
 - composer self-update
 - printf "<?php\n\$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ./sites/default/settings.local.php
+- printf "\n\$settings['config_readonly'] = FALSE;" >> ./sites/default/settings.local.php
 install:
 - mysql -e 'create database IF NOT EXISTS travis;' -uroot
 - export PATH="$HOME/.composer/vendor/bin:$PATH"
