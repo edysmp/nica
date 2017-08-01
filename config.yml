@@ -17,7 +17,7 @@ installed_extras:
   # - blackfire
   - drupalconsole
   - drush
-  - elasticsearch
+  # - elasticsearch
   - java
   - mailhog
   # - memcached
@@ -33,18 +33,3 @@ installed_extras:
   - varnish
   - xdebug
   # - xhprof
-
-post_provision_scripts:
-  - "{{ config_dir }}/scripts/drupalvm/configure-solr.sh"
-  #- "{{ config_dir }}/scripts/drupalvm/post-provision.sh"
-  # - "../examples/scripts/configure-solr.sh"
-
-
-# Node.js configuration (if enabled above).
-# Valid examples: "0.10", "0.12", "4.x", "5.x", "6.x".
-nodejs_version: "6.x"
-
-# Solr Configuration (if enabled above).
-solr_version: "6.5.1"
-solr_xms: "64M"
-solr_xmx: "128M"
