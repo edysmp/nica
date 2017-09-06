@@ -145,18 +145,6 @@ field_settings:
         - field.storage.nica_entity.field_benefit_earned
 datasource_settings:
   'entity:nica_entity':
-    plugin_id: 'entity:nica_entity'
-    settings:
-      bundles:
-        default: false
-        selected:
-          - employment_history
-          - event_history
-          - profile
-          - project_history
-      languages:
-        default: true
-        selected: {  }
     bundles:
       default: true
       selected: {  }
@@ -164,20 +152,18 @@ datasource_settings:
       default: true
       selected: {  }
 processor_settings:
-  aggregated_field:
-    plugin_id: aggregated_field
-    settings: {  }
   add_url:
     plugin_id: add_url
+    settings: {  }
+  aggregated_field:
+    plugin_id: aggregated_field
     settings: {  }
   rendered_item:
     plugin_id: rendered_item
     settings: {  }
 tracker_settings:
-  default:
-    plugin_id: default
-    settings: {  }
+  default: {  }
 options:
-  index_directly: true
+  index_directly: false
   cron_limit: 50
 server: nica_solr_server

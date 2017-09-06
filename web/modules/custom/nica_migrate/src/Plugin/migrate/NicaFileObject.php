@@ -21,6 +21,9 @@ class NicaFileObject extends CSVFileObject {
         unset($row["material$i"]);
       }
       $row['material_id'] = implode('', $row['material']);
+
+      //create a year-trim property for reduce source keys.
+      $row['year_trim'] = $row['year'] . $row['trim'];
     }
     return $row;
   }

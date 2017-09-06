@@ -14,7 +14,7 @@ cck_plugin_method: null
 migration_tags:
   - CSV
 migration_group: null
-label: Materials
+label: 'Materials - Paragraph'
 source:
   plugin: materials
   path: modules/custom/nica_migrate/csv-files/project_materials_list.csv
@@ -23,8 +23,7 @@ source:
     - id
     - material
     - profile
-    - year
-    - trim
+    - year_trim
 process:
   type:
     plugin: default_value
