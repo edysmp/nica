@@ -7,6 +7,9 @@ vagrant_ip: 0.0.0.0
 
 drupal_composer_install_dir: "/var/www/drupalvm"
 
+drupalvm_webserver: nginx
+nginx_remove_default_vhost: true
+
 drupal_build_composer_project: false
 drupal_install_site: false
 
@@ -33,3 +36,13 @@ installed_extras:
   - varnish
   - xdebug
   # - xhprof
+
+# Add any extra apt or yum packages you would like installed.
+extra_packages:
+  - sqlite
+  - php7.1-zip
+
+php_memory_limit: "512M"
+
+php_xdebug_default_enable: 1
+php_xdebug_coverage_enable: 1
