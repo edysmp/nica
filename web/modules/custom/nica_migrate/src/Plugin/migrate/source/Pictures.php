@@ -33,20 +33,14 @@ class Pictures extends SourcePluginBase {
     if (empty($configuration)) {
       throw new MigrateException('There is not configuration for dropbox stream wrapper');
     }
-    $f = key($settings);
     $dropbox = new Dropbox($configuration);
     $client = $dropbox->getAdapter()->getClient();
     $directory = $client->getMetadataWithChildren($this->configuration['path']);
     if (isset($directory['contents'])) {
-      foreach ($directory['contents'] as $key => $info) {
-        $file_name = explode('/', $directory['contents'][$key]['path']);
-        $file_name_original = $file_name[count($file_name) - 1];
-        $file_name =  strtoupper($file_name_original);
-        preg_match('/-(.*)(.JPG|.GIF|.PNG)/', $file_name, $name_tmp);
-        isset($name_tmp[1]) ? $file_name = trim($name_tmp[1]) : $file_name;
-        $directory['contents'][$key]['filename'] = $file_name;
-        $directory['contents'][$key]['filepath'] = key($settings) . ':/' . $directory['contents'][$key]['path'];
-        $directory['contents'][$key]['uri'] = 'public://perfil/pictures/' . $file_name_original;
+      foreach ($directory['contents'] as $key => &$info) {
+        $pathinfo = pathinfo($info['path']);
+        $split = explode( '-', $pathinfo['filename']);
+        $info['filename'] = $split[1];
       }
       return new \ArrayIterator($directory['contents']);
     }

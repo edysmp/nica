@@ -18,9 +18,9 @@ drupal_install_site: false
 installed_extras:
   - adminer
   # - blackfire
-  - drupalconsole
+  # - drupalconsole
   - drush
-  # - elasticsearch
+  - elasticsearch
   - java
   - mailhog
   # - memcached
@@ -46,3 +46,5 @@ php_memory_limit: "512M"
 
 php_xdebug_default_enable: 1
 php_xdebug_coverage_enable: 1
+
+solr_version: "6.3.0"
