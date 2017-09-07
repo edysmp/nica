@@ -1,22 +1,22 @@
-uuid: d2904c7c-149a-4ca0-97f4-8dba4afb3dd2
+uuid: ee5e0c55-36b3-448c-808a-097ea6288bb9
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.materiales
+    - facets.facet.tipo_de_busqueda
   module:
     - facets
   theme:
     - nica_theme
-id: materiales
+id: tipodebusqueda
 theme: nica_theme
 region: sidebar_second
 weight: 0
 provider: null
-plugin: 'facet_block:materiales'
+plugin: 'facet_block:tipo_de_busqueda'
 settings:
-  id: 'facet_block:materiales'
-  label: Materiales
+  id: 'facet_block:tipo_de_busqueda'
+  label: 'Tipo de busqueda'
   provider: facets
   label_display: visible
 visibility: {  }

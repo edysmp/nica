@@ -1,25 +1,25 @@
-uuid: ce2fed2a-f17c-4e37-81c2-ca3dccdc5e8e
+uuid: 30e0d45b-303b-4270-9dbd-7a60ad5433ba
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.nica_search
-    - views.view.solr_search
+    - views.view.nica_search
   module:
     - search_api
-id: materiales
-name: Materiales
-url_alias: materiales
+id: tipo_de_busqueda
+name: 'Tipo de busqueda'
+url_alias: tipo_de_busqueda
 weight: 0
 min_count: 1
-show_only_one_result: false
-field_identifier: field_material
-facet_source_id: 'search_api:views_page__solr_search__page_2'
+show_only_one_result: true
+field_identifier: type
+facet_source_id: 'search_api:views_page__nica_search__page_1'
 widget:
-  type: links
+  type: dropdown
   config:
     show_numbers: true
-    soft_limit: 0
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false

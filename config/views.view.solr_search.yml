@@ -7,13 +7,13 @@ dependencies:
     - system.menu.main
     - taxonomy.vocabulary.city
     - taxonomy.vocabulary.event_name
+    - taxonomy.vocabulary.gender
     - taxonomy.vocabulary.last_name
     - taxonomy.vocabulary.marital_status
     - taxonomy.vocabulary.name
     - taxonomy.vocabulary.project_group
     - taxonomy.vocabulary.project_name
   module:
-    - search
     - search_api
     - search_api_views_taxonomy
 id: solr_search
@@ -55,8 +55,8 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 10
-          offset: 5
+          items_per_page: 50
+          offset: 0
           id: 0
           total_pages: null
           tags:
@@ -76,9 +76,14 @@ display:
       style:
         type: default
       row:
-        type: search_view
+        type: search_api
         options:
-          score: true
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
       fields:
         type:
           table: search_api_index_nica_search
@@ -370,6 +375,7 @@ display:
         row: false
         filters: false
         filter_groups: false
+        cache: false
       style:
         type: default
         options: {  }
@@ -436,11 +442,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
+          operator: or
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -457,18 +460,28 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            reduce: false
           is_grouped: false
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            label: Género
+            description: null
+            identifier: field_gender
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: gender
+          hierarchy: 0
+          error_message: 1
           plugin_id: search_api_text
         field_project_name:
           id: field_project_name
@@ -573,6 +586,8 @@ display:
         weight: 1
         context: '0'
         menu_name: main
+      cache:
+        type: none
     cache_metadata:
       max-age: -1
       contexts:
@@ -664,11 +679,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
+          operator: or
+          value: ''
           group: 1
           exposed: true
           expose:
@@ -697,6 +709,9 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          parse_mode: terms
+          min_length: ''
+          fields: {  }
           plugin_id: search_api_text
       filter_groups:
         operator: AND

@@ -17,8 +17,12 @@ dependencies:
     - field.storage.nica_entity.field_city
     - field.storage.nica_entity.field_materials
     - field.storage.nica_entity.field_benefit_earned
+    - field.storage.nica_entity.field_gender
+    - field.storage.paragraph.field_material
     - search_api.server.nica_solr_server
   module:
+    - search_api_solr
+    - paragraphs
     - search_api
     - nica_entity
 id: nica_search
@@ -30,12 +34,12 @@ field_settings:
     label: 'Entity type (Bundle)'
     datasource_id: 'entity:nica_entity'
     property_path: type
-    type: text
+    type: string
   field_first_name:
     label: Nombres
     datasource_id: 'entity:nica_entity'
     property_path: field_first_name
-    type: text
+    type: solr_text_unstemmed
     dependencies:
       config:
         - field.storage.nica_entity.field_first_name
@@ -43,7 +47,7 @@ field_settings:
     label: Apellidos
     datasource_id: 'entity:nica_entity'
     property_path: field_last_name
-    type: text
+    type: solr_text_unstemmed
     dependencies:
       config:
         - field.storage.nica_entity.field_last_name
@@ -51,7 +55,7 @@ field_settings:
     label: 'Estado Civil'
     datasource_id: 'entity:nica_entity'
     property_path: field_marital_status
-    type: text
+    type: string
     dependencies:
       config:
         - field.storage.nica_entity.field_marital_status
@@ -67,7 +71,7 @@ field_settings:
     label: 'Nombre del Proyecto'
     datasource_id: 'entity:nica_entity'
     property_path: field_project_name
-    type: text
+    type: solr_text_unstemmed
     dependencies:
       config:
         - field.storage.nica_entity.field_project_name
@@ -75,7 +79,7 @@ field_settings:
     label: 'Grupo del Proyecto'
     datasource_id: 'entity:nica_entity'
     property_path: field_project_group
-    type: text
+    type: solr_text_unstemmed
     dependencies:
       config:
         - field.storage.nica_entity.field_project_group
@@ -83,7 +87,7 @@ field_settings:
     label: 'Nombre del Evento '
     datasource_id: 'entity:nica_entity'
     property_path: field_event_name
-    type: text
+    type: solr_text_unstemmed
     dependencies:
       config:
         - field.storage.nica_entity.field_event_name
@@ -107,7 +111,7 @@ field_settings:
     label: 'Lugar de Contratación'
     datasource_id: 'entity:nica_entity'
     property_path: field_place_of_employment
-    type: text
+    type: solr_text_unstemmed
     dependencies:
       config:
         - field.storage.nica_entity.field_place_of_employment
@@ -123,7 +127,7 @@ field_settings:
     label: 'Ciudad del Evento'
     datasource_id: 'entity:nica_entity'
     property_path: field_city
-    type: text
+    type: string
     dependencies:
       config:
         - field.storage.nica_entity.field_city
@@ -143,6 +147,25 @@ field_settings:
     dependencies:
       config:
         - field.storage.nica_entity.field_benefit_earned
+  field_gender:
+    label: Género
+    datasource_id: 'entity:nica_entity'
+    property_path: field_gender
+    type: integer
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_gender
+  field_material:
+    label: 'Materiales » Paragraph » Materiales'
+    datasource_id: 'entity:nica_entity'
+    property_path: 'field_materials:entity:field_material'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_materials
+        - field.storage.paragraph.field_material
+      module:
+        - paragraphs
 datasource_settings:
   'entity:nica_entity':
     bundles:
