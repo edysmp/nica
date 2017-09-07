@@ -7,7 +7,6 @@ dependencies:
     - system.menu.main
     - taxonomy.vocabulary.city
     - taxonomy.vocabulary.event_name
-    - taxonomy.vocabulary.gender
     - taxonomy.vocabulary.last_name
     - taxonomy.vocabulary.marital_status
     - taxonomy.vocabulary.name
@@ -598,6 +597,7 @@ display:
         row: false
         filters: false
         filter_groups: false
+        cache: false
       style:
         type: default
         options: {  }
@@ -711,6 +711,8 @@ display:
         weight: 2
         context: '0'
         menu_name: main
+      cache:
+        type: none
     cache_metadata:
       max-age: -1
       contexts:

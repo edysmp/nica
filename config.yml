@@ -42,6 +42,9 @@ extra_packages:
   - sqlite
   - php7.1-zip
 
+post_provision_scripts:
+  - "{{ config_dir }}/scripts/drupalvm/configure-solr.sh"
+
 php_memory_limit: "512M"
 
 php_xdebug_default_enable: 1

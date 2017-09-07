@@ -3,9 +3,10 @@ langcode: es
 status: true
 dependencies:
   config:
+    - search_api.index.nica_search
     - views.view.solr_search
   module:
-    - views
+    - search_api
 id: fecha_de_contratacion
 name: 'Fecha de Contratación'
 url_alias: fecha_de_contratacion
