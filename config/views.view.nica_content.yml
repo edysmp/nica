@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.nica_entity.field_first_name
     - field.storage.nica_entity.field_last_name
-    - system.menu.admin
   module:
     - nica_entity
 id: nica_content
@@ -1024,11 +1023,19 @@ display:
       display_extenders: {  }
       path: admin/content/nica
       menu:
+        type: tab
+        title: 'Nica Content'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: admin
+      tab_options:
         type: normal
         title: 'Nica Content'
-        menu_name: admin
-        enabled: true
-        expanded: false
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: 0
       contexts:
