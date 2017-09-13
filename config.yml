@@ -7,6 +7,9 @@ vagrant_ip: 0.0.0.0
 
 drupal_composer_install_dir: "/var/www/drupalvm"
 
+drupalvm_webserver: nginx
+nginx_remove_default_vhost: true
+
 drupal_build_composer_project: false
 drupal_install_site: false
 
@@ -15,7 +18,7 @@ drupal_install_site: false
 installed_extras:
   - adminer
   # - blackfire
-  - drupalconsole
+  # - drupalconsole
   - drush
   - elasticsearch
   - java
@@ -34,17 +37,17 @@ installed_extras:
   - xdebug
   # - xhprof
 
+# Add any extra apt or yum packages you would like installed.
+extra_packages:
+  - sqlite
+  - php7.1-zip
+
 post_provision_scripts:
   - "{{ config_dir }}/scripts/drupalvm/configure-solr.sh"
-  #- "{{ config_dir }}/scripts/drupalvm/post-provision.sh"
-  # - "../examples/scripts/configure-solr.sh"
 
+php_memory_limit: "512M"
 
-# Node.js configuration (if enabled above).
-# Valid examples: "0.10", "0.12", "4.x", "5.x", "6.x".
-nodejs_version: "6.x"
+php_xdebug_default_enable: 1
+php_xdebug_coverage_enable: 1
 
-# Solr Configuration (if enabled above).
-solr_version: "6.5.1"
-solr_xms: "64M"
-solr_xmx: "128M"
+solr_version: "6.3.0"

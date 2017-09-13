@@ -1,32 +1,30 @@
-uuid: 0efbe216-6760-4b20-a738-819ecd3f7082
-langcode: es
+uuid: 30e0d45b-303b-4270-9dbd-7a60ad5433ba
+langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.nica_search
-    - views.view.solr_search
+    - views.view.nica_search
   module:
     - search_api
-id: fecha_de_contratacion
-name: 'Fecha de Contratación'
-url_alias: fecha_de_contratacion
+id: tipo_de_busqueda
+name: 'Tipo de busqueda'
+url_alias: tipo_de_busqueda
 weight: 0
 min_count: 1
-show_only_one_result: false
-field_identifier: field_employment_date
-facet_source_id: 'search_api:views_page__solr_search__page_3'
+show_only_one_result: true
+field_identifier: type
+facet_source_id: 'search_api:views_page__nica_search__page_1'
 widget:
-  type: datebasic
+  type: dropdown
   config:
     show_numbers: true
-    display_relative: false
-    granularity: '6'
-    date_display: ''
+    default_option_label: Choose
 query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: null
+hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
@@ -36,12 +34,23 @@ processor_configs:
       sort: -10
     settings:
       sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
       sort: -10
     settings:
-      sort: DESC
+      sort: ASC
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:

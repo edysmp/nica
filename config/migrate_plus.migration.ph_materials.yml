@@ -12,7 +12,7 @@ cck_plugin_method: null
 migration_tags:
   - CSV
 migration_group: default
-label: 'Project History Materials'
+label: 'Project History - Materials'
 source:
   plugin: csv
   path: modules/custom/nica_migrate/csv-files/project_materials_list.csv
@@ -55,8 +55,7 @@ process:
       - id
       - '@material_1'
       - profile
-      - year
-      - trim
+      - year_trim
   material_2:
     plugin: extract
     source: material
@@ -68,8 +67,7 @@ process:
       - id
       - '@material_2'
       - profile
-      - year
-      - trim
+      - year_trim
   material_3:
     plugin: extract
     source: material
@@ -81,8 +79,7 @@ process:
       - id
       - '@material_3'
       - profile
-      - year
-      - trim
+      - year_trim
   material_4:
     plugin: extract
     source: material
@@ -94,8 +91,7 @@ process:
       - id
       - '@material_4'
       - profile
-      - year
-      - trim
+      - year_trim
   materials:
     plugin: get
     source:

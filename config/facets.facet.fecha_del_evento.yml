@@ -3,9 +3,10 @@ langcode: es
 status: true
 dependencies:
   config:
+    - search_api.index.nica_search
     - views.view.solr_search
   module:
-    - views
+    - search_api
 id: fecha_del_evento
 name: 'Fecha del Evento'
 url_alias: fecha_del_evento
@@ -25,7 +26,7 @@ query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
-hard_limit: null
+hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:

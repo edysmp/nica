@@ -16,10 +16,25 @@ label: 'Pictures Nica'
 source:
   plugin: pictures
   path: /databasephotos
+  constants:
+    DRUPAL_FILE_DIRECTORY: 'public://perfil/pictures'
 process:
-  filename: filename
-  filepath: filepath
-  uri: uri
+  destination_filename:
+    -
+      plugin: callback
+      callable: basename
+      source: path
+    -
+      plugin: skip_on_empty
+      method: row
+  destination_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/DRUPAL_FILE_DIRECTORY
+        - '@destination_filename'
+  uri: '@destination_full_path'
 destination:
   plugin: 'entity:file'
   preserve_files: true

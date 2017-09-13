@@ -1,5 +1,5 @@
-uuid: 17e9e946-ca99-464c-b189-50a9b4d2c7b0
-langcode: es
+uuid: ce2fed2a-f17c-4e37-81c2-ca3dccdc5e8e
+langcode: en
 status: true
 dependencies:
   config:
@@ -13,14 +13,14 @@ url_alias: materiales
 weight: 0
 min_count: 1
 show_only_one_result: false
-field_identifier: field_materials
+field_identifier: field_material
 facet_source_id: 'search_api:views_page__solr_search__page_2'
 widget:
-  type: checkbox
+  type: links
   config:
-    show_numbers: false
+    show_numbers: true
     soft_limit: 0
-query_operator: and
+query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
@@ -28,6 +28,29 @@ hard_limit: 0
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  count_widget_order:
+    processor_id: count_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: DESC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: -10
+    settings:
+      sort: ASC
+  translate_entity:
+    processor_id: translate_entity
+    weights:
+      build: 5
+    settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
@@ -35,6 +58,4 @@ processor_configs:
       build: -10
     settings: {  }
 empty_behavior:
-  behavior: text
-  text_format: plain_text
-  text: Materiales
+  behavior: none

@@ -41,6 +41,9 @@ class Materials extends CSV {
         $new_line['cantidad'] = $line["Cantidad$i"];
         $new_line['valor'] = $line["Valor$i"];
         $new_line['measurement'] = isset($line["Unidad$i"]) ? $line["Unidad$i"] : '';
+
+        //create a year-trim property for reduce source keys.
+        $new_line['year_trim'] = $new_line['year'] . $new_line['trim'];
         yield $new_line;
       }
     }
