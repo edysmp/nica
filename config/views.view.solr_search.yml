@@ -124,12 +124,14 @@ display:
         type: default
         options: {  }
       row:
-        type: fields
+        type: search_api
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          view_modes:
+            'entity:nica_entity':
+              employment_history: default
+              event_history: default
+              profile: teaser
+              project_history: default
       filters:
         field_first_name:
           id: field_first_name
