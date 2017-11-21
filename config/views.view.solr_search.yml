@@ -101,9 +101,415 @@ display:
         - 'languages:language_interface'
         - url.query_args
       tags: {  }
-  page_1:
+  employment:
     display_plugin: page
-    id: page_1
+    id: employment
+    display_title: 'Employment History Search Page'
+    position: 3
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Employment History Solr Search'
+      defaults:
+        title: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+        cache: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
+      path: search/employment
+      filters:
+        field_first_name:
+          id: field_first_name
+          table: search_api_index_nica_search
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_op
+            label: Nombres
+            description: ''
+            use_operator: false
+            operator: field_first_name_op
+            identifier: field_first_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_place_of_employment:
+          id: field_place_of_employment
+          table: search_api_index_nica_search
+          field: field_place_of_employment
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_place_of_employment_op
+            label: 'Lugar de Contratación'
+            description: ''
+            use_operator: false
+            operator: field_place_of_employment_op
+            identifier: field_place_of_employment
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: ''
+          fields: {  }
+          plugin_id: search_api_text
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      menu:
+        type: normal
+        title: 'Employment History'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 2
+        context: '0'
+        menu_name: main
+      cache:
+        type: none
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+      tags: {  }
+  event:
+    display_plugin: page
+    id: event
+    display_title: 'Events History Search Page'
+    position: 4
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Events History Solr Search'
+      defaults:
+        title: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+      path: search/events
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
+      filters:
+        field_first_name:
+          id: field_first_name
+          table: search_api_index_nica_search
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_op
+            label: Nombres
+            description: ''
+            use_operator: false
+            operator: field_first_name_op
+            identifier: field_first_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_event_name:
+          id: field_event_name
+          table: search_api_index_nica_search
+          field: field_event_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_name_op
+            label: 'Nombre del Evento '
+            description: ''
+            use_operator: false
+            operator: field_event_name_op
+            identifier: field_event_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: event_name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_city:
+          id: field_city
+          table: search_api_index_nica_search
+          field: field_city
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_city_op
+            label: 'Ciudad del Evento'
+            description: ''
+            use_operator: false
+            operator: field_city_op
+            identifier: field_city
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: city
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_materials:
+          id: field_materials
+          table: search_api_index_nica_search
+          field: field_materials
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_materials_op
+            label: Materiales
+            description: ''
+            use_operator: false
+            operator: field_materials_op
+            identifier: field_materials
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
+        field_benefit_earned:
+          id: field_benefit_earned
+          table: search_api_index_nica_search
+          field: field_benefit_earned
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_benefit_earned_op
+            label: 'Beneficios Obtenidos'
+            description: ''
+            use_operator: false
+            operator: field_benefit_earned_op
+            identifier: field_benefit_earned
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      menu:
+        type: normal
+        title: 'Events History'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 3
+        context: '0'
+        menu_name: main
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+      tags: {  }
+  profile:
+    display_plugin: page
+    id: profile
     display_title: 'Profiles Search Page'
     position: 1
     display_options:
@@ -471,9 +877,9 @@ display:
         - url.query_args
         - user
       tags: {  }
-  page_2:
+  project:
     display_plugin: page
-    id: page_2
+    id: project
     display_title: 'Project History Search Page'
     position: 2
     display_options:
@@ -699,412 +1105,6 @@ display:
         menu_name: main
       cache:
         type: none
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user
-      tags: {  }
-  page_3:
-    display_plugin: page
-    id: page_3
-    display_title: 'Employment History Search Page'
-    position: 3
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      title: 'Employment History Solr Search'
-      defaults:
-        title: false
-        style: false
-        row: false
-        filters: false
-        filter_groups: false
-        cache: false
-      style:
-        type: default
-        options: {  }
-      row:
-        type: search_api
-        options:
-          view_modes:
-            'entity:nica_entity':
-              employment_history: teaser
-              event_history: teaser
-              profile: teaser
-              project_history: teaser
-      path: search/employment
-      filters:
-        field_first_name:
-          id: field_first_name
-          table: search_api_index_nica_search
-          field: field_first_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_first_name_op
-            label: Nombres
-            description: ''
-            use_operator: false
-            operator: field_first_name_op
-            identifier: field_first_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: name
-          hierarchy: false
-          error_message: true
-          plugin_id: search_api_term
-        field_place_of_employment:
-          id: field_place_of_employment
-          table: search_api_index_nica_search
-          field: field_place_of_employment
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_place_of_employment_op
-            label: 'Lugar de Contratación'
-            description: ''
-            use_operator: false
-            operator: field_place_of_employment_op
-            identifier: field_place_of_employment
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          parse_mode: terms
-          min_length: ''
-          fields: {  }
-          plugin_id: search_api_text
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      menu:
-        type: normal
-        title: 'Employment History'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 2
-        context: '0'
-        menu_name: main
-      cache:
-        type: none
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user
-      tags: {  }
-  page_4:
-    display_plugin: page
-    id: page_4
-    display_title: 'Events History Search Page'
-    position: 4
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      title: 'Events History Solr Search'
-      defaults:
-        title: false
-        style: false
-        row: false
-        filters: false
-        filter_groups: false
-      path: search/events
-      style:
-        type: default
-        options: {  }
-      row:
-        type: search_api
-        options:
-          view_modes:
-            'entity:nica_entity':
-              employment_history: teaser
-              event_history: teaser
-              profile: teaser
-              project_history: teaser
-      filters:
-        field_first_name:
-          id: field_first_name
-          table: search_api_index_nica_search
-          field: field_first_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_first_name_op
-            label: Nombres
-            description: ''
-            use_operator: false
-            operator: field_first_name_op
-            identifier: field_first_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: name
-          hierarchy: false
-          error_message: true
-          plugin_id: search_api_term
-        field_event_name:
-          id: field_event_name
-          table: search_api_index_nica_search
-          field: field_event_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_event_name_op
-            label: 'Nombre del Evento '
-            description: ''
-            use_operator: false
-            operator: field_event_name_op
-            identifier: field_event_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: event_name
-          hierarchy: false
-          error_message: true
-          plugin_id: search_api_term
-        field_city:
-          id: field_city
-          table: search_api_index_nica_search
-          field: field_city
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_city_op
-            label: 'Ciudad del Evento'
-            description: ''
-            use_operator: false
-            operator: field_city_op
-            identifier: field_city
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: city
-          hierarchy: false
-          error_message: true
-          plugin_id: search_api_term
-        field_materials:
-          id: field_materials
-          table: search_api_index_nica_search
-          field: field_materials
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_materials_op
-            label: Materiales
-            description: ''
-            use_operator: false
-            operator: field_materials_op
-            identifier: field_materials
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: search_api_text
-        field_benefit_earned:
-          id: field_benefit_earned
-          table: search_api_index_nica_search
-          field: field_benefit_earned
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_benefit_earned_op
-            label: 'Beneficios Obtenidos'
-            description: ''
-            use_operator: false
-            operator: field_benefit_earned_op
-            identifier: field_benefit_earned
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: search_api_text
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      menu:
-        type: normal
-        title: 'Events History'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 3
-        context: '0'
-        menu_name: main
     cache_metadata:
       max-age: -1
       contexts:

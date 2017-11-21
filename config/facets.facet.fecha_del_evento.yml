@@ -14,7 +14,7 @@ weight: 0
 min_count: 1
 show_only_one_result: false
 field_identifier: field_event_date
-facet_source_id: 'search_api:views_page__solr_search__page_4'
+facet_source_id: 'search_api:views_page__solr_search__project'
 widget:
   type: links
   config:
@@ -39,7 +39,7 @@ processor_configs:
       build: 35
     settings:
       date_format: ''
-      granularity: '6'
+      granularity: 6
       date_display: actual_date
   display_value_widget_order:
     processor_id: display_value_widget_order
