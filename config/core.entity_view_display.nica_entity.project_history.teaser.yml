@@ -36,7 +36,7 @@ content:
     region: content
   field_profile_reference:
     type: entity_reference_label
-    weight: 0
+    weight: 1
     label: above
     settings:
       link: true
@@ -60,7 +60,7 @@ content:
     third_party_settings: {  }
     region: content
   field_project_name:
-    weight: 1
+    weight: 0
     label: above
     settings:
       link: false

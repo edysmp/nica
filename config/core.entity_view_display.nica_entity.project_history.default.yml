@@ -19,20 +19,21 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - options
+    - user
 id: nica_entity.project_history.default
 targetEntityType: nica_entity
 bundle: project_history
 mode: default
 content:
   field_benefit_earned:
-    weight: 6
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_city:
-    weight: 3
+    weight: 4
     label: above
     settings:
       link: true
@@ -40,7 +41,7 @@ content:
     type: entity_reference_label
     region: content
   field_comments_on_result:
-    weight: 7
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -48,7 +49,7 @@ content:
     region: content
   field_materials:
     type: entity_reference_revisions_entity_view
-    weight: 8
+    weight: 9
     label: above
     settings:
       view_mode: default
@@ -57,14 +58,14 @@ content:
     region: content
   field_profile_reference:
     type: entity_reference_label
-    weight: 0
+    weight: 2
     label: above
     settings:
       link: true
     third_party_settings: {  }
     region: content
   field_project_date:
-    weight: 4
+    weight: 5
     label: above
     settings:
       timezone_override: ''
@@ -74,14 +75,14 @@ content:
     region: content
   field_project_group:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     label: above
     settings:
       link: false
     third_party_settings: {  }
     region: content
   field_project_leader:
-    weight: 9
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -96,7 +97,7 @@ content:
     type: entity_reference_label
     region: content
   field_quarter:
-    weight: 5
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -104,7 +105,7 @@ content:
     region: content
   field_result:
     type: entity_reference_label
-    weight: 10
+    weight: 11
     label: above
     settings:
       link: true
