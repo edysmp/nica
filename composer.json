@@ -33,8 +33,6 @@
     "drupal/flysystem_dropbox": "~1",
     "drupal/geolocation": "~1",
     "drupal/entity": "~1",
-    "drupal/media_entity": "~1",
-    "drupal/media_entity_image": "~1",
     "drupal/migrate_source_csv": "~2",
     "drupal/paragraphs": "~1",
     "drupal/search_api": "1.x-dev",
