@@ -56,15 +56,9 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  user_id:
-    label: hidden
-    type: author
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   langcode: true
   links: true
   type: true
   uid: true
+  user_id: true
